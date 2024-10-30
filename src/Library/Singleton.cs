@@ -1,33 +1,30 @@
 ﻿using System;
 
-namespace Library
+namespace Library;
+
+public class Singleton <T> where T : new()
 {
-    public class Greeter 
+    private static T instance;
 
+    private Singleton()
     {
-        public Greeter()
-    {
-        // Intentionally left blank
+        
     }
-
-    private static Greeter instance;
-
-    public static Greeter Instance
+    public static T Instance
     {
         get
         {
             if (instance == null)
             {
-                instance = new Greeter();
+                instance = new T();
             }
 
             return instance;
         }
     }
-
+    
     public void SayHiToTheWorld()
     {
         Console.WriteLine("Hello World!");
-    }
     }
 }
